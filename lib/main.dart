@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mood_tracker/SplashScreen.dart';
+import 'package:mood_tracker/WelcomeScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,16 +9,18 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  final String _title = 'Mood tracker';
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: _title,
+      title: Strings.appTitle,
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: SplashScreen(title: _title),
+      home: const SplashScreen(),
     );
   }
+}
+
+class Strings {
+  static const String appTitle = 'Mood tracker';
 }
