@@ -1,38 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mood_tracker/HomePage.dart';
-import 'package:mood_tracker/WelcomeScreen.dart';
 
 import 'main.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+class MoodScreen extends StatefulWidget {
+  const MoodScreen({Key? key}) : super(key: key);
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  _MoodScreenState createState() => _MoodScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _MoodScreenState extends State<MoodScreen> {
   @override
   Widget build(BuildContext context) {
-    Future.delayed(
-        const Duration(seconds: 2),
-        () => {
-              if (haveLoaded())
-                {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (ctx) => const WelcomeScreen()))
-                }
-              else
-                {
-                  // todo load data
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (ctx) => const HomePage()))
-                }
-            });
-
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -50,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Icon(Icons.people, color: Colors.white, size: 80.0),
+                  const Icon(Icons.emoji_people, color: Colors.white, size: 80.0),
                   const Padding(padding: EdgeInsets.only(top: 15.0)),
                   Text(Strings.appTitle,
                       textAlign: TextAlign.center,
@@ -61,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         color: Colors.white,
                       ))),
                   const Padding(padding: EdgeInsets.only(top: 5.0)),
-                  Text('Aplikacja do śledzenia \n twojego nastroju',
+                  Text('Twój nastrój',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.lato(
                           textStyle: const TextStyle(
@@ -70,21 +50,6 @@ class _SplashScreenState extends State<SplashScreen> {
                       ))),
                 ],
               )),
-          Positioned(
-              left: 0,
-              bottom: 35,
-              right: 0,
-              child: Container(
-                alignment: Alignment.center,
-                child: Text("Ładowanie...",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.lato(
-                        textStyle: const TextStyle(
-                      fontWeight: FontWeight.w300,
-                      fontSize: 18.0,
-                      color: Colors.white,
-                    ))),
-              ))
         ],
       ),
     );

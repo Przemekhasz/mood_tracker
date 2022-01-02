@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mood_tracker/HomePage.dart';
 import 'package:mood_tracker/SplashScreen.dart';
-import 'package:mood_tracker/WelcomeScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: Strings.appTitle,
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.blue,
       ),
-      home: const SplashScreen(),
+      home: const HomePage(),
     );
   }
 }
